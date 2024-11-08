@@ -45,16 +45,16 @@
 
         .shoot-btn {
             margin: 16px 10px;
-            padding: 12px 24px;
+            padding: 10px;
             font-size: 1.1em;
             cursor: pointer;
             border: none;
             color: #fff;
             transition: background-color 0.3s, transform 0.2s;
             display: inline-block;
-            width: 50px;
-            height: 50px;
-            border-radius: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
         }
 
         .shoot-btn[data-direction="left"] {
@@ -130,4 +130,10 @@
 
         .enemy-score {
             background-color: #f3cdcd;
+        }
+
+        i{
+            font-size: large;
+            color: black;
+
         }
