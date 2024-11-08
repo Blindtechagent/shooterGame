@@ -49,24 +49,26 @@
             font-size: 1.1em;
             cursor: pointer;
             border: none;
-            color: #fff;
             transition: background-color 0.3s, transform 0.2s;
             display: inline-block;
             width: 70px;
             height: 70px;
-            border-radius: 15px;
+            border-radius: 12px;
         }
 
         .shoot-btn[data-direction="left"] {
             background-color: #6c63ff;
+            color: #ffffff;
         }
 
         .shoot-btn[data-direction="center"] {
             background-color: #ff6b6b;
+            color: #001f3f;
         }
 
         .shoot-btn[data-direction="right"] {
             background-color: #4ecdc4;
+            color: #333333;
         }
 
         .shoot-btn:hover,
@@ -132,8 +134,7 @@
             background-color: #f3cdcd;
         }
 
-        i{
-            font-size: 55px;
-            color: black;
-font-weight: bold;
+        i {
+            font-size: 50px;
+            font-weight: bold;
         }
