@@ -58,17 +58,14 @@
 
         .shoot-btn[data-direction="left"] {
             background-color: #6c63ff;
-            color: #ffffff;
         }
 
         .shoot-btn[data-direction="center"] {
             background-color: #ff6b6b;
-            color: #001f3f;
         }
 
         .shoot-btn[data-direction="right"] {
             background-color: #4ecdc4;
-            color: #333333;
         }
 
         .shoot-btn:hover,
