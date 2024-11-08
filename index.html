@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Interactive Shooter Game</title>
+</head>
+
+<body>
+
+    <h1>Shooter Game</h1>
+    <p id="game-instructions">Click "Start Game" to begin. Aim and shoot the enemy before it shoots you! <br>Use Left
+        Arrow (Left), Up Arrow (Center), and Right Arrow (Right) to shoot.</p>
+    <button id="start-btn">Start Game</button>
+
+    <div id="game-area">
+        <div id="enemy" role="alert" aria-live="assertive"></div>
+        <div id="controls" hidden>
+            <button class="shoot-btn" data-direction="left" aria-label="Shoot Left">Shoot Left</button>
+            <button class="shoot-btn" data-direction="center" aria-label="Shoot Center">Shoot Center</button>
+            <button class="shoot-btn" data-direction="right" aria-label="Shoot Right">Shoot Right</button>
+        </div>
+    </div>
+
+    <div id="scoreboard">
+        <div class="score player-score">Player: <span id="player-score">0</span></div>
+        <div class="score enemy-score">Enemy: <span id="enemy-score">0</span></div>
+    </div>
+
+    <p id="game-result" aria-live="assertive"></p>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

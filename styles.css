@@ -1,0 +1,134 @@
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ffdd57;
+            margin-bottom: 10px;
+        }
+
+        #game-area {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border: 2px solid #ffdd57;
+            border-radius: 12px;
+            background-color: #333;
+            box-shadow: 0 0 20px rgba(255, 221, 87, 0.7);
+            text-align: center;
+        }
+
+        #enemy {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #ff4040;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s;
+            min-height: 60px;
+        }
+
+        .appear {
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        .shoot-btn {
+            margin: 16px;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            width: 25vw;
+            height: 25vh;
+            border-radius: 20px;
+        }
+
+        .shoot-btn[data-direction="left"] {
+            background-color: #6c63ff;
+        }
+
+        .shoot-btn[data-direction="center"] {
+            background-color: #ff6b6b;
+        }
+
+        .shoot-btn[data-direction="right"] {
+            background-color: #4ecdc4;
+        }
+
+        .shoot-btn:hover,
+        .shoot-btn:focus {
+            transform: scale(1.05);
+            opacity: 0.9;
+            outline: 3px solid #333;
+        }
+
+        #game-instructions,
+        #game-result {
+            font-size: 1.1em;
+            margin: 10px 0;
+            color: #ffdd57;
+        }
+
+        #start-btn {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #start-btn:hover {
+            background-color: #357ab7;
+            transform: scale(1.05);
+        }
+
+        .hit-bg {
+            background-color: #28a745;
+        }
+
+        .miss-bg {
+            background-color: #dc3545;
+        }
+
+        #scoreboard {
+            font-size: 1.2em;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-around;
+            color: #ffdd57;
+        }
+
+        .score {
+            font-weight: bold;
+            padding: 5px 10px;
+            margin: 10px;
+            border-radius: 5px;
+            min-width: 80px;
+        }
+
+        .player-score {
+            background-color: #cfe2ff;
+        }
+
+        .enemy-score {
+            background-color: #f3cdcd;
+        }
