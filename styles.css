@@ -53,8 +53,8 @@
             color: #fff;
             transition: background-color 0.3s, transform 0.2s;
             display: inline-block;
-            width: 25vw;
-            height: 25vh;
+            width: 100px;
+            height: 100px;
             border-radius: 20px;
         }
 
