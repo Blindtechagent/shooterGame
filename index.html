@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/a5db627303.js" crossorigin="anonymous"></script>
     <title>Interactive Shooter Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -18,11 +16,14 @@
     <button id="start-btn">Start Game</button>
 
     <div id="game-area">
-        <div id="enemy" role="alert" aria-live="assertive"></div>
+        <div id="enemy_info" role="alert" aria-live="assertive"></div>
+        <div class="enemy_container">
+            <div id="enemy_figure">👾</div>
+        </div>
         <div id="controls" hidden>
-            <button class="shoot-btn" data-direction="left" aria-label="Shoot Left"><i class="fa-solid fa-gun fa-flip-horizontal" style="color: #ffffff;"></i></button>
-            <button class="shoot-btn" data-direction="center" aria-label="Shoot Center"><i class="fa-solid fa-gun fa-flip-vertical" style="color: #001f3f;"></i></button>
-            <button class="shoot-btn" data-direction="right" aria-label="Shoot Right"><i class="fa-solid fa-gun" style="color: #333333;"></i></button>
+            <button class="shoot-btn" data-direction="left" aria-label="Shoot Left">Shoot Left</button>
+            <button class="shoot-btn" data-direction="center" aria-label="Shoot Center">Shoot Center</button>
+            <button class="shoot-btn" data-direction="right" aria-label="Shoot Right">Shoot Right</button>
         </div>
     </div>
 
@@ -32,10 +33,7 @@
     </div>
 
     <p id="game-result" aria-live="assertive"></p>
-
-
     <script src="script.js"></script>
-
 </body>
 
 </html>

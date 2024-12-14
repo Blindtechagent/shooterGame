@@ -1,6 +1,7 @@
 const startBtn = document.getElementById("start-btn");
 const controls = document.getElementById("controls");
-const enemyDiv = document.getElementById("enemy");
+const enemyInfo = document.getElementById("enemy_info");
+const enemy = document.getElementById('enemy_figure');
 const gameResult = document.getElementById("game-result");
 const playerScoreDisplay = document.getElementById("player-score");
 const enemyScoreDisplay = document.getElementById("enemy-score");
@@ -35,7 +36,7 @@ function startGame() {
     gameResult.textContent = "";
     controls.hidden = false;
     startBtn.hidden = true;
-    enemyDiv.textContent = "Get Ready!";
+    enemyInfo.textContent = "Get Ready!";
 
     sounds.backgroundMusic.play();
     sounds.start.play();  // Start game sound
@@ -68,16 +69,19 @@ function updateBackground(hit) {
 function spawnEnemy() {
     const directions = ["left", "center", "right"];
     enemyDirection = directions[Math.floor(Math.random() * directions.length)];
-    enemyDiv.textContent = `Enemy approaching from: ${enemyDirection.toUpperCase()}!`;
-    enemyDiv.classList.add("appear");
+    enemyInfo.textContent = `Enemy approaching from: ${enemyDirection.toUpperCase()}!`;
+    enemyInfo.classList.add("appear");
+    enemy.style.display = 'block';
+    enemy.classList.add(enemyDirection);
 
     const timeoutId = setTimeout(() => {
         if (enemyDirection) {
             enemyScore++;
             updateBackground(false);
-            enemyDiv.textContent = "No shot fired! Enemy hits you.";
-            enemyDiv.classList.remove("appear");
-
+            enemyInfo.textContent = "No shot fired! Enemy hits you.";
+            enemyInfo.classList.remove("appear");
+            enemy.style.display = 'none';
+            enemy.classList.remove(enemyDirection);
             // Play enemy shoot sound
             sounds.enemyShoot.play();
 
@@ -109,11 +113,11 @@ function shootEnemy(direction, timeoutId) {
         }
 
         if (playerScore === 5) {
-            enemyDiv.textContent = "Solid attack! Enemy's health is now Half.";
+            enemyInfo.textContent = "Solid attack! Enemy's health is now Half.";
         } else if (playerScore === 8) {
-            enemyDiv.textContent = "Great shot! Enemy health critical, Enemy is almost dead!";
+            enemyInfo.textContent = "Great shot! Enemy health critical, Enemy is almost dead!";
         } else {
-            enemyDiv.textContent = "Nice shot! Enemy Injured!";
+            enemyInfo.textContent = "Nice shot! Enemy Injured!";
         }
     } else {
         enemyScore++;
@@ -127,15 +131,17 @@ function shootEnemy(direction, timeoutId) {
         }
 
         if (enemyScore === 5) {
-            enemyDiv.textContent = "Bad shot! Warning, Half health remaining!";
+            enemyInfo.textContent = "Bad shot! Warning, Half health remaining!";
         } else if (enemyScore === 8) {
-            enemyDiv.textContent = "Bad shot! You are dying! Act fast.";
+            enemyInfo.textContent = "Bad shot! You are dying! Act fast.";
         } else {
-            enemyDiv.textContent = "Bad shot! Enemy hits you!";
+            enemyInfo.textContent = "Bad shot! Enemy hits you!";
         }
     }
 
-    enemyDiv.classList.remove("appear");
+    enemyInfo.classList.remove("appear");
+    enemy.style.display = 'none';
+    enemy.classList.remove(enemyDirection);
     enemyDirection = "";
     updateScores();
     checkGameEnd();
