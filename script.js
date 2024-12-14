@@ -1,3 +1,6 @@
+const initial_screen = document.getElementById('initialScreen');
+const score_board = document.getElementById('scoreboard');
+const game_area = document.getElementById('game-area');
 const startBtn = document.getElementById("start-btn");
 const controls = document.getElementById("controls");
 const enemyInfo = document.getElementById("enemy_info");
@@ -34,8 +37,9 @@ function startGame() {
     enemyScore = 0;
     updateScores();
     gameResult.textContent = "";
-    controls.hidden = false;
-    startBtn.hidden = true;
+    initial_screen.style.display = 'none';
+    game_area.style.display = 'block';
+    score_board.style.display = 'block';
     enemyInfo.textContent = "Get Ready!";
 
     sounds.backgroundMusic.play();
