@@ -12,15 +12,16 @@
     <h1>Shooter Game</h1>
     <!-- initial screen -->
     <div id="initialScreen">
-    <p id="game-instructions">Click "Start Game" to begin. Aim and shoot the enemy before it shoots you! <br>Use Left
-        Arrow (Left), Up Arrow (Center), and Right Arrow (Right) to shoot.</p>
-    <button id="start-btn">Start Game</button>
-</div>
+        <p id="game-instructions">Click "Start Game" to begin. Aim and shoot the enemy before it shoots you! <br>Use
+            Left
+            Arrow (Left), Up Arrow (Center), and Right Arrow (Right) to shoot.</p>
+        <button id="start-btn">Start Game</button>
+    </div>
 
-<!-- game area -->
+    <!-- game area -->
     <div id="game-area">
         <div id="enemy_info" role="alert" aria-live="assertive"></div>
-        <div class="enemy_container">
+        <div class="enemy_container" id="enemy_container">
             <div id="enemy_figure">👾</div>
         </div>
         <div id="controls">
@@ -29,7 +30,7 @@
             <button class="shoot-btn" data-direction="right" aria-label="Shoot Right">Shoot Right</button>
         </div>
     </div>
-
+    <!-- score board -->
     <div id="scoreboard">
         <div class="score player-score">Player: <span id="player-score">0</span></div>
         <div class="score enemy-score">Enemy: <span id="enemy-score">0</span></div>

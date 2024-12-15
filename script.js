@@ -4,6 +4,7 @@ const game_area = document.getElementById('game-area');
 const startBtn = document.getElementById("start-btn");
 const controls = document.getElementById("controls");
 const enemyInfo = document.getElementById("enemy_info");
+const enemy_container = document.getElementById('enemy_container');
 const enemy = document.getElementById('enemy_figure');
 const gameInstructions = document.getElementById("game-instructions");
 const playerScoreDisplay = document.getElementById("player-score");
@@ -49,8 +50,8 @@ function startGame() {
 
 function endGame() {
     clearInterval(gameInterval);
-    game_area.style.display='none';
-initial_screen.style.display='block';
+    game_area.style.display = 'none';
+    initial_screen.style.display = 'block';
     sounds.backgroundMusic.pause();
 
     if (playerScore >= 10) {
@@ -65,8 +66,8 @@ initial_screen.style.display='block';
 }
 
 function updateBackground(hit) {
-    document.body.classList.toggle(hit ? "hit-bg" : "miss-bg");
-    setTimeout(() => document.body.classList.remove(hit ? "hit-bg" : "miss-bg"), 300);
+    enemy_container.classList.toggle(hit ? "hit-bg" : "miss-bg");
+    setTimeout(() => enemy_container.classList.remove(hit ? "hit-bg" : "miss-bg"), 300);
 }
 
 function spawnEnemy() {
