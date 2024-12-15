@@ -5,7 +5,7 @@ const startBtn = document.getElementById("start-btn");
 const controls = document.getElementById("controls");
 const enemyInfo = document.getElementById("enemy_info");
 const enemy = document.getElementById('enemy_figure');
-const gameResult = document.getElementById("game-result");
+const gameInstructions = document.getElementById("game-instructions");
 const playerScoreDisplay = document.getElementById("player-score");
 const enemyScoreDisplay = document.getElementById("enemy-score");
 
@@ -36,10 +36,9 @@ function startGame() {
     playerScore = 0;
     enemyScore = 0;
     updateScores();
-    gameResult.textContent = "";
     initial_screen.style.display = 'none';
     game_area.style.display = 'block';
-    score_board.style.display = 'block';
+    score_board.style.display = 'flex';
     enemyInfo.textContent = "Get Ready!";
 
     sounds.backgroundMusic.play();
@@ -50,15 +49,15 @@ function startGame() {
 
 function endGame() {
     clearInterval(gameInterval);
-    controls.hidden = true;
-    startBtn.hidden = false;
+    game_area.style.display='none';
+initial_screen.style.display='block';
     sounds.backgroundMusic.pause();
 
     if (playerScore >= 10) {
-        gameResult.textContent = "Victory! You defeated the enemy!";
+        gameInstructions.textContent = "Victory! You defeated the enemy!";
         sounds.victory.play();
     } else {
-        gameResult.textContent = "You lose! The enemy defeated you.";
+        gameInstructions.textContent = "You lose! The enemy defeated you.";
         sounds.defeat.play();
     }
 
