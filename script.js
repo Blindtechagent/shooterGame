@@ -45,7 +45,7 @@ function startGame() {
     sounds.backgroundMusic.play();
     sounds.start.play();  // Start game sound
 
-    gameInterval = setInterval(spawnEnemy, 4000);
+    gameInterval = setInterval(spawnEnemy, 3000);
 }
 
 function endGame() {
