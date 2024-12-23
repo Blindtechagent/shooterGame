@@ -45,7 +45,7 @@ function startGame() {
     sounds.backgroundMusic.play();
     sounds.start.play();  // Start game sound
 
-    gameInterval = setInterval(spawnEnemy, 3000);
+    gameInterval = setInterval(spawnEnemy, 4000);
 }
 
 function endGame() {
@@ -66,9 +66,11 @@ function endGame() {
 }
 
 function updateBackground(hit) {
-    enemy_container.classList.toggle(hit ? "hit-bg" : "miss-bg");
-    setTimeout(() => enemy_container.classList.remove(hit ? "hit-bg" : "miss-bg"), 300);
+    enemy_container.classList.remove('hit', 'miss'); // Clear previous states
+    enemy_container.classList.add(hit ? 'hit' : 'miss'); // Apply new state
+    setTimeout(() => enemy_container.classList.remove(hit ? 'hit' : 'miss'), 300);
 }
+
 
 function spawnEnemy() {
     const directions = ["left", "center", "right"];
@@ -77,6 +79,9 @@ function spawnEnemy() {
     enemyInfo.classList.add("appear");
     enemy.style.display = 'block';
     enemy.classList.add(enemyDirection);
+    // Add fading in animation
+    enemy.style.opacity = 0;
+    setTimeout(() => enemy.style.opacity = 1, 0);
 
     const timeoutId = setTimeout(() => {
         if (enemyDirection) {
@@ -108,7 +113,10 @@ function shootEnemy(direction, timeoutId) {
     if (direction === enemyDirection) {
         playerScore++;
         updateBackground(true);
+        // Add shatter animation
+        enemy.classList.add("shatter");
 
+        setTimeout(() => resetEnemy(), 500); // Remove enemy after shatter effect
         // Play success sound after user shoot
         sounds.success.play();
 
@@ -141,6 +149,7 @@ function shootEnemy(direction, timeoutId) {
         } else {
             enemyInfo.textContent = "Bad shot! Enemy hits you!";
         }
+        resetEnemy();
     }
 
     enemyInfo.classList.remove("appear");
@@ -149,6 +158,12 @@ function shootEnemy(direction, timeoutId) {
     enemyDirection = "";
     updateScores();
     checkGameEnd();
+}
+
+function resetEnemy() {
+    enemy.style.display = 'none';
+    enemy.classList.remove("left", "center", "right", "shatter");
+    enemyDirection = "";
 }
 
 function updateScores() {
