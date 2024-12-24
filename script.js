@@ -12,7 +12,7 @@ const enemyScoreDisplay = document.getElementById("enemy-score");
 
 // Audio files for different events
 const sounds = {
-    backgroundMusic: new Audio('https://www.myinstants.com/media/sounds/delivery-lethal-company.mp3'),
+    backgroundMusic: new Audio('bgm.mp3'),
     userShoot: new Audio('https://www.myinstants.com/media/sounds/m4a1_single-kibblesbob-8540445.mp3'),
     enemyShoot: new Audio('https://www.myinstants.com/media/sounds/gunshotjbudden.mp3'),
     success: new Audio('https://www.myinstants.com/media/sounds/sfx_point.mp3'),
@@ -32,8 +32,11 @@ let playerScore = 0;
 let enemyScore = 0;
 let enemyDirection = "";
 let gameInterval;
+let gameSpeed = 3500;
+let gameActive = false;
 
 function startGame() {
+    gameActive = 'true';
     playerScore = 0;
     enemyScore = 0;
     updateScores();
@@ -45,11 +48,13 @@ function startGame() {
     sounds.backgroundMusic.play();
     sounds.start.play();  // Start game sound
 
-    gameInterval = setInterval(spawnEnemy, 4000);
+    gameInterval = setInterval(spawnEnemy, gameSpeed);
 }
 
 function endGame() {
+    gameActive = 'false';
     clearInterval(gameInterval);
+    gameSpeed = 3500;
     game_area.style.display = 'none';
     initial_screen.style.display = 'block';
     sounds.backgroundMusic.pause();
@@ -76,7 +81,6 @@ function spawnEnemy() {
     const directions = ["left", "center", "right"];
     enemyDirection = directions[Math.floor(Math.random() * directions.length)];
     enemyInfo.textContent = `Enemy approaching from: ${enemyDirection.toUpperCase()}!`;
-    enemyInfo.classList.add("appear");
     enemy.style.display = 'block';
     enemy.classList.add(enemyDirection);
     // Add fading in animation
@@ -97,7 +101,7 @@ function spawnEnemy() {
             updateScores();
             checkGameEnd();
         }
-    }, 3000);
+    }, gameSpeed - 1500);
 
     document.querySelectorAll(".shoot-btn").forEach(button => {
         button.onclick = () => shootEnemy(button.dataset.direction, timeoutId);
@@ -126,8 +130,10 @@ function shootEnemy(direction, timeoutId) {
 
         if (playerScore === 5) {
             enemyInfo.textContent = "Solid attack! Enemy's health is now Half.";
+            gameSpeed = 3000;
         } else if (playerScore === 8) {
             enemyInfo.textContent = "Great shot! Enemy health critical, Enemy is almost dead!";
+            gameSpeed = 2500;
         } else {
             enemyInfo.textContent = "Nice shot! Enemy Injured!";
         }
@@ -181,7 +187,7 @@ startBtn.addEventListener("click", startGame);
 
 // Keyboard shortcuts for shooting with arrows
 document.addEventListener("keydown", (event) => {
-    if (controls.hidden) return;
+    if (!gameActive || controls.hidden) return; // Only allow shooting when the game is active
 
     const keyMap = {
         "ArrowLeft": "left",
