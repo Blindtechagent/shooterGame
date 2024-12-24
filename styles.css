@@ -93,8 +93,8 @@ h1 {
 #game-area {
     display: none;
     width: 80vw;
-    height: auto;
-    padding: 16px;
+    height: fit-content;
+    padding: 10px;
     margin: auto;
     border: 3px solid #ffcc00;
     border-radius: 12px;
@@ -116,7 +116,7 @@ h1 {
 
 /* Enemy Info */
 #enemy_info {
-    font-size: 24px;
+    font-size: 16px;
     text-align: center;
     margin: 15px auto;
     color: #ff5722;
@@ -144,6 +144,7 @@ h1 {
     border-radius: 8px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 16px auto;
     animation: enemyContainerGlow 3s infinite alternate;
 }
 
@@ -243,47 +244,80 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 20px auto;
-    width: 80vw;
+    margin: auto;
+    width: 70vw;
+    height: 15vh;
+    overflow: hidden;
     padding: 10px;
     background-color: #00bcd4;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
+    position: relative;
 }
 
+/* Shoot Buttons */
 .shoot-btn {
-    padding: 10px 20px;
-    font-size: 1.1em;
-    cursor: pointer;
+    width: 50px;
+    height: 50px;
     border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffd700; /* Bright gold for a vibrant button background */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    position: absolute;
 }
 
+/* Positioning the buttons */
 .shoot-btn[data-direction="left"] {
-    background-color: #ff5722;
+    left: 10%;
 }
 
 .shoot-btn[data-direction="center"] {
-    background-color: #8bc34a;
+    left: 50%;
+    right: 50%;
 }
 
 .shoot-btn[data-direction="right"] {
-    background-color: #03a9f4;
+    right: 10%;
 }
 
+/* Icon Styling */
+.shoot-btn i {
+    font-size: 30px;
+    color: #2c2c2c; /* Deep dark gray for strong contrast */
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for added realism */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Hover Effects */
 .shoot-btn:hover {
+    transform: scale(1.2);
+    background-color: #ffc107; /* Slightly darker gold for hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+}
+
+.shoot-btn:hover i {
+    color: #000000; /* Solid black for maximum contrast */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); /* Stronger shadow for emphasis */
+}
+
+/* Click Effect */
+.shoot-btn:focus {
     transform: scale(1.1);
-    background-color: #ffcc00;
+    background-color: #ff8c00; /* Deep orange for click effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Scoreboard */
 #scoreboard {
     font-size: 18px;
-    margin: 15px auto;
+    margin: 12px auto;
     width: 80vw;
-    padding: 16px;
+    padding: 12px;
     display: none;
     justify-content: space-around;
     background-color: #ffeb3b;
