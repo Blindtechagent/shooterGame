@@ -273,7 +273,7 @@ h1 {
 
 /* Positioning the buttons */
 .shoot-btn[data-direction="left"] {
-    left: 0;
+    left: 0%;
 }
 
 .shoot-btn[data-direction="center"] {
@@ -282,7 +282,7 @@ h1 {
 }
 
 .shoot-btn[data-direction="right"] {
-    right: 0;
+    right: 0%;
 }
 
 /* Icon Styling */
