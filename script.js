@@ -14,10 +14,10 @@ const enemyScoreDisplay = document.getElementById("enemy-score");
 const sounds = {
     backgroundMusic: new Audio('bgm.mp3'),
     userShoot: new Audio('https://www.myinstants.com/media/sounds/m4a1_single-kibblesbob-8540445.mp3'),
-    enemyShoot: new Audio('https://www.myinstants.com/media/sounds/gunshotjbudden.mp3'),
-    success: new Audio('https://www.myinstants.com/media/sounds/sfx_point.mp3'),
+    enemyShoot: new Audio('https://www.myinstants.com/media/sounds/bulletimpact.mp3'),
+    success: new Audio('https://www.myinstants.com/media/sounds/stationary-kill_gDwMUvN.mp3'),
     start: new Audio('https://www.myinstants.com/media/sounds/gun-load_abJphmJ.mp3'),
-    missShot: new Audio('miss-shot.mp3'),
+    // missShot: new Audio('https://www.myinstants.com/media/sounds/bulletimpact.mp3'),
     milestone: new Audio('https://www.myinstants.com/media/sounds/point-drop.mp3'),
     victory: new Audio('https://www.myinstants.com/media/sounds/magikarp-jump-coins.mp3'),
     defeat: new Audio('https://www.myinstants.com/media/sounds/tf_nemesis.mp3')
