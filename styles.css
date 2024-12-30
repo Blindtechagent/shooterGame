@@ -1,5 +1,5 @@
 /* General Styles */
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -8,8 +8,6 @@ body {
     text-align: center;
     background-color: #f5f5dc;
     animation: backgroundFade 3s ease-in-out infinite alternate;
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -44,9 +42,10 @@ h1 {
 /* Initial Screen */
 #initialScreen {
     background-color: #f8bbd0;
-   padding: 16px;
-    margin: 10px auto;
-    width: 80vw;
+    padding: 16px;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1200px;
     height: 50vh;
     border: 3px solid #ff4081;
     border-radius: 12px;
@@ -96,9 +95,10 @@ h1 {
 /* Game Area */
 #game-area {
     display: none;
-    width: 90vw;
-    height: 60vh;
-    padding: 10px;
+    width: 90%;
+    max-width: 1200px;
+    height: fit-content;
+    padding: 16px;
     margin: auto;
     border: 3px solid #ffcc00;
     border-radius: 12px;
@@ -139,16 +139,15 @@ h1 {
 
 /* Enemy Container */
 .enemy_container {
-    display: inline-block;
-    margin: auto;
-    padding: 10px;
-    width: 80vw;
-    height: 20vh;
-    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 30vh;
     overflow: hidden;
     border-radius: 8px;
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 16px auto;
     animation: enemyContainerGlow 3s infinite alternate;
 }
 
@@ -174,7 +173,6 @@ h1 {
 #enemy_figure {
     display: none;
     font-size: 50px;
-    position: absolute;
     background-color: #e91e63;
     color: #ffffff;
     text-align: center;
@@ -226,54 +224,51 @@ h1 {
 }
 
 #enemy_figure.left {
-    left: 0%;
-    /* top: 50%;
-    transform: translateY(-50%); */
+    margin-right: auto;
 }
 
 #enemy_figure.center {
-    left: 50%;
-    right: 50%;
-    /* transform: translate(-50%, -50%); */
+    margin: 0 auto;
 }
 
 #enemy_figure.right {
-    right: 0%;
-    /* top: 50%;
-    transform: translateY(-50%); */
+    margin-left: auto;
 }
 
 /* Controls */
 #controls {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: auto;
-    width: 80vw;
-    height: 20vh;
+    width: 80%;
+    height: 15vh;
     overflow: hidden;
     padding: 10px;
     background-color: #00bcd4;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
-    position: relative;
 }
 
 /* Shoot Buttons */
 .shoot-btn {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border: none;
-    border-radius: 10%;
+    border-radius: 50%;
     cursor: pointer;
-    background-color: #ffd700; /* Bright gold for a vibrant button background */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
-    /* display: flex;
+    background-color: #ffd700;
+    /* Bright gold for a vibrant button background */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Slight shadow for depth */
+    display: flex;
+    padding: 10px;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-    position: absolute;
 }
 
-/* Positioning the buttons */
+/* Positioning the buttons
 .shoot-btn[data-direction="left"] {
     left: 0%;
 }
@@ -285,32 +280,39 @@ h1 {
 
 .shoot-btn[data-direction="right"] {
     right: 0%;
-}
+} */
 
 /* Icon Styling */
 .shoot-btn i {
     font-size: 32px;
-    color: #2c2c2c; /* Deep dark gray for strong contrast */
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for added realism */
+    color: #2c2c2c;
+    /* Deep dark gray for strong contrast */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    /* Slight shadow for added realism */
     transition: color 0.3s, text-shadow 0.3s;
 }
 
 /* Hover Effects */
 .shoot-btn:hover {
     transform: scale(1.2);
-    background-color: #ffc107; /* Slightly darker gold for hover effect */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+    background-color: #ffc107;
+    /* Slightly darker gold for hover effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow effect */
 }
 
 .shoot-btn:hover i {
-    color: #000000; /* Solid black for maximum contrast */
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); /* Stronger shadow for emphasis */
+    color: #000000;
+    /* Solid black for maximum contrast */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    /* Stronger shadow for emphasis */
 }
 
 /* Click Effect */
 .shoot-btn:focus {
     transform: scale(1.1);
-    background-color: #ff8c00; /* Deep orange for click effect */
+    background-color: #ff8c00;
+    /* Deep orange for click effect */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -318,7 +320,7 @@ h1 {
 #scoreboard {
     font-size: 18px;
     margin: 12px auto;
-    width: 90vw;
+    width: 80vw;
     padding: 12px;
     display: none;
     justify-content: space-around;
