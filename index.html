@@ -4,19 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Shooter Game</title>
+    <title>Shootout Challenge</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Shooter Game</h1>
+    <h1>Shootout Challenge</h1>
     <!-- initial screen -->
     <div id="initialScreen">
-        <p id="game-instructions">Click "Start Game" to begin. Aim and shoot the enemy before it shoots you! <br>Use
-            Left
-            Arrow (Left), Up Arrow (Center), and Right Arrow (Right) to shoot.</p>
+        <div id="game-instructions">
+            <p>Welcome to the Shootout Challenge! In this game, your objective is to shoot enemies before they attack
+                you. Be quick and aim carefully to score points!</p>
+            <p>Enemies will appear randomly from one of three directions: left, center, or right. You must shoot them
+                before they get the chance to shoot you.</p>
+            <p>The game will speed up as you score more points, so stay alert and try to reach 10 points before the
+                enemy does. Click "Start Game" to begin and good luck!</p>
+        </div>
         <button id="start-btn">Start Game</button>
+        <br>
+        <details>
+            <summary>How to Play</summary>
+            <p>Welcome to the Shootout Challenge! Get ready for an exciting shooting game where you'll need to use your
+                skills and quick reflexes to outshoot the enemy. Here’s how to play:</p>
+
+            <ul>
+                <li><strong>Enemy Appearance:</strong> Enemies will randomly appear from one of three directions: left,
+                    center, or right. You need to stay alert as they approach.</li>
+                <li><strong>Shooting the Enemy:</strong> Your goal is to shoot the enemy before it shoots you. If you
+                    shoot the enemy first, you score a point.</li>
+                <li><strong>Increasing Difficulty:</strong> As you score more points, the game speeds up. The faster you
+                    shoot, the quicker the enemy gets!</li>
+                <li><strong>Winning the Game:</strong> The first player to score 10 points wins the game. Keep playing
+                    and improve your shooting speed to beat the enemy!</li>
+                <li><strong>Controls:</strong>
+                    <ul>
+                        <li>Use <strong>Alt + Left Arrow</strong> or click the <strong>Shoot Left</strong> button (which
+                            has a gun icon pointing to the left) to fire at enemies on the left.</li>
+                        <li>Use <strong>Alt + Up Arrow</strong> or click the <strong>Shoot Center</strong> button (which
+                            has a gun icon pointing straight) to fire at enemies in the center.</li>
+                        <li>Use <strong>Alt + Right Arrow</strong> or click the <strong>Shoot Right</strong> button
+                            (which has a gun icon pointing to the right) to fire at enemies on the right.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>Be quick and try to score 10 points before the enemy gets you!</p>
+        </details>
+
     </div>
 
     <!-- game area -->

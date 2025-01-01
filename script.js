@@ -60,10 +60,15 @@ function endGame() {
     sounds.backgroundMusic.pause();
 
     if (playerScore >= 10) {
-        gameInstructions.textContent = "Victory! You defeated the enemy!";
+        gameInstructions.innerHTML = `    <h2>Victory! You Won!</h2>
+    <p>Congratulations on your victory! You defeated the enemy!</p>
+    <p>Well done! Ready to claim another victory?</p>`;
         sounds.victory.play();
     } else {
-        gameInstructions.textContent = "You lose! The enemy defeated you.";
+        gameInstructions.innerHTML = `    <h2>Game Over!</h2>
+    <p>Oops! Looks like the enemy got the best of you this time.</p>
+    <p>Don’t give up! With every try, you’ll get better!</p>
+    <p>Ready to jump back into the action? Let's do it!</p>`;
         sounds.defeat.play();
     }
 
